@@ -6,8 +6,8 @@ GPIO.setmode(GPIO.BOARD)
 ControlPins = [7,11,13,15]
 
 for pin in ControlPins:
-    GPIO.setup(pin, GPIO.out)
-    GPIO.output(pin, 0)
+    GPIO.setup(pin,GPIO.OUT)
+    GPIO.output(pin,0)
 
 
 # half step sequence
@@ -29,4 +29,6 @@ for i in range(512):
                 # set pin
                 GPIO.output( ControlPins[pin], hs_sequence[halfstep][pin] )
             time.sleep(0.001)
-            
+
+
+GPIO.cleanup()
