@@ -9,13 +9,16 @@ import curses
 import os
 import time
 import picamera
+import pygame
+import RPi.GPIO as GPIO
 
 #setting up camera
 camera = picamera.PiCamera()
 camera.resolution = (1024, 768)
 camera.start_preview()
 
-
+#initialize pygame audio module
+pygame.mixer.init()
 
 #activating servo blaster (servod must be in the same folder as this script!)
 os.system('sudo ./servod')
@@ -53,7 +56,13 @@ try:
             camera.capture('image%s.jpg' % pic)
             pic = pic +1
             screen.addstr(0, 0, 'picture taken! ')
-        elif char == curses.KEY_RIGHT:
+        if char == ord('w'):
+		#play sound
+		pygame.mixer.music.load("What Time Is It (1).mp3") #wtit = what time is it?
+		pygame.mixer.music.play()
+		while pygame.mixer.get_busy() == True:
+        		continue
+	elif char == curses.KEY_RIGHT:
             screen.addstr(0, 0, 'right ')
             if servo1 > 50:
                 servo1 = servo1 -2
