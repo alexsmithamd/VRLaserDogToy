@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.board)
+GPIO.setmode(GPIO.BOARD)
 
 controlpin = [31,33,35,37]
 
