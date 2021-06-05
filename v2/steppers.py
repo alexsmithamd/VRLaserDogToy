@@ -51,7 +51,9 @@ class Axis:
                 time.sleep(delay)
 
         def positive_spin(self):
-                print("Old position: " + self.position)
+                print("Old position:")
+                print(self.position)
+
                 if self.position_index == 7:
                         self.position_index = 0
                 else:
@@ -63,7 +65,9 @@ class Axis:
                 self.set_pins(self.pins, self.position)
 
         def negative_spin(self):
-                print("Old position: " + self.position)
+                print("Old position: ")
+                print(self.position)
+                
                 if self.position_index == 0:
                         self.position_index = 7
                 else:
