@@ -65,7 +65,9 @@ class Axis:
                 else:
                         self.position_index += 3
                 self.position = self.hs_sequence[self.position_index]
-                print("New position: " + self.position)
+                
+                print("New position:") 
+                print(self.position)
 
                 # set new pins
                 self.set_pins(self.pins, self.position)
