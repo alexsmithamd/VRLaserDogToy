@@ -93,7 +93,7 @@ roll = Axis(0, 32, 36, 38, 40)  # Z
 
 # Laser stuff  
 
-GPIO.setup(14, GPIO.OUT)
+GPIO.setup(8, GPIO.OUT)
 class Laser:
         def __init__(self, status):
             self.status = status
@@ -103,7 +103,7 @@ class Laser:
                         self.status = False
                 elif self.status == False:
                         self.status = True
-                GPIO.output(14, self.status)
+                GPIO.output(8, self.status)
 
 
 laser = Laser(False)
