@@ -165,7 +165,7 @@ try:
                 elif key_press == ord('h'):
                         # roll right
                         print("h+")
-                        roll.positive_spin()
+                        height.positive_spin()
 finally:
     # shut down cleanly
     curses.nocbreak(); screen.keypad(0); curses.echo()
