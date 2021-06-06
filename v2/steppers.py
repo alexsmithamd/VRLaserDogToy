@@ -69,7 +69,7 @@ class Axis:
                 print("Old position:")
                 print(self.position)
                 
-                for i in range(40):
+                for i in range(20):
                         if self.position_index == 7:
                                 self.position_index = 0
                         else:
@@ -86,7 +86,7 @@ class Axis:
                 print("Old position: ")
                 print(self.position)
                 
-                for i in range(40):
+                for i in range(20):
                         if self.position_index == 0:
                                 self.position_index = 7
                         else:
@@ -97,16 +97,13 @@ class Axis:
 
                 print("New position: ")
                 print(self.position)
-                
-                
-
 #-----------------------------------------------------
 
 # define axis
 height = Axis(0, 12, 16, 18, 22)  # Y.2 : will stay still until we need it later
-yaw = Axis(0, 31, 33, 35, 37)   # X
-roll = Axis(0, 7, 11, 13, 15)   # Y
-pitch = Axis(0, 32, 36, 38, 40)  # Z
+pitch = Axis(0, 29, 31, 33, 35)   
+roll = Axis(0, 7, 11, 13, 15)   
+yaw = Axis(0, 32, 36, 38, 40)  
 
 laser = Laser(False)
 
@@ -121,7 +118,6 @@ try:
                 if key_press == ord('q'):
                         #if q is pressed quit
                         break
-
                 if key_press == ord('l'):
                         #toggles laser on/off when l is pressed
                         print("Laser before")
@@ -129,8 +125,6 @@ try:
                         laser.toggle_laser()
                         print("Laser after")
                         print(laser.status)
-                        
-
                 if key_press == ord('w'):
                         # pitch up
                         print("p+")
@@ -148,7 +142,6 @@ try:
                         # yaw right
                         print("y+")
                         yaw.positive_spin()
-                
                 if key_press == ord('j'):
                         # roll left
                         print("r-")
@@ -157,13 +150,12 @@ try:
                         # roll right
                         print("r+")
                         roll.positive_spin()
-                
                 if key_press == ord('g'):
-                        # roll left
+                        # height down
                         print("h-")
                         height.negative_spin()
                 elif key_press == ord('h'):
-                        # roll right
+                        # height up
                         print("h+")
                         height.positive_spin()
 finally:
