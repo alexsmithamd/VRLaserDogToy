@@ -44,7 +44,7 @@ class Axis:
         def set_pins(self, pins_arr, position_arr):
                 for i in range(4):
                         GPIO.output(pins_arr[i], position_arr[i])
-                # time.sleep(delay)
+                time.sleep(delay)
 
         def positive_spin(self):
                 print("Old position:")
