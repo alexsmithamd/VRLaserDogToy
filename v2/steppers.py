@@ -55,10 +55,12 @@ class Axis:
                 print(self.position)
 
                 if self.position_index == 0:
+                        self.position_index = 5
+                elif self.position_index == 5:
                         self.position_index = 7
                 elif self.position_index == 7:
                         self.position_index = 0
-        
+                        
                 self.position = self.hs_sequence[self.position_index]
                 
                 print("New position:") 
