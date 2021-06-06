@@ -17,10 +17,6 @@ screen.keypad(True)
 # define variables & pins
 delay = .001  # delay between each sequence step to prevent jitter
 
-
-
-
-
 class Axis:
 
         # half step sequence -> should put inside class ???
@@ -48,7 +44,7 @@ class Axis:
         def set_pins(self, pins_arr, position_arr):
                 for i in range(4):
                         GPIO.output(pins_arr[i], position_arr[i])
-                time.sleep(delay)
+                # time.sleep(delay)
 
         def positive_spin(self):
                 print("Old position:")
