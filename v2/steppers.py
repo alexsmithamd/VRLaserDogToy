@@ -53,36 +53,37 @@ class Axis:
         def positive_spin(self):
                 print("Old position:")
                 print(self.position)
-
-                if self.position_index == 0:
-                        self.position_index = 5
-                elif self.position_index == 5:
-                        self.position_index = 7
-                elif self.position_index == 7:
-                        self.position_index = 0
-                        
-                self.position = self.hs_sequence[self.position_index]
+                
+                for i in range(40):
+                        if self.position_index == 7:
+                                self.position_index = 0
+                        else:
+                                self.position_index += 1
+                        self.position = self.hs_sequence[self.position_index]
+                        # set new pins
+                        self.set_pins(self.pins, self.position)
                 
                 print("New position:") 
                 print(self.position)
 
-                # set new pins
-                self.set_pins(self.pins, self.position)
 
         def negative_spin(self):
                 print("Old position: ")
                 print(self.position)
                 
-                if self.position_index == 0:
-                        self.position_index = 7
-                else:
-                        self.position_index -= 1
-                self.position = self.hs_sequence[self.position_index]
+                for i in range(40):
+                        if self.position_index == 0:
+                                self.position_index = 7
+                        else:
+                                self.position_index -= 1
+                        self.position = self.hs_sequence[self.position_index]
+                        # set new pins
+                        self.set_pins(self.pins, self.position)
+
                 print("New position: ")
                 print(self.position)
                 
-                # set new pins
-                self.set_pins(self.pins, self.position)
+                
 
 #-----------------------------------------------------
 
