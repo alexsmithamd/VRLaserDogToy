@@ -69,7 +69,7 @@ class Axis:
                 print("Old position:")
                 print(self.position)
                 
-                for i in range(50):
+                for i in range(30):
                         if self.position_index == 7:
                                 self.position_index = 0
                         else:
@@ -86,7 +86,7 @@ class Axis:
                 print("Old position: ")
                 print(self.position)
                 
-                for i in range(50):
+                for i in range(30):
                         if self.position_index == 0:
                                 self.position_index = 7
                         else:
@@ -100,10 +100,10 @@ class Axis:
 #-----------------------------------------------------
 
 # define axis
-height = Axis(0, 12, 16, 18, 22)  # Y.2 : will stay still until we need it later
+yaw = Axis(0, 12, 16, 18, 22)  # Y.2 : will stay still until we need it later
 pitch = Axis(0, 29, 31, 33, 35)   
 roll = Axis(0, 7, 11, 13, 15)   
-yaw = Axis(0, 32, 36, 38, 40)  
+pitch = Axis(0, 32, 36, 38, 40)  
 
 laser = Laser(False)
 
