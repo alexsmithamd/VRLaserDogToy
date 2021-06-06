@@ -69,7 +69,7 @@ class Axis:
                 print("Old position:")
                 print(self.position)
                 
-                for i in range(20):
+                for i in range(50):
                         if self.position_index == 7:
                                 self.position_index = 0
                         else:
@@ -86,7 +86,7 @@ class Axis:
                 print("Old position: ")
                 print(self.position)
                 
-                for i in range(20):
+                for i in range(50):
                         if self.position_index == 0:
                                 self.position_index = 7
                         else:
