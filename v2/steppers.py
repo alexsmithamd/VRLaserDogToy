@@ -118,11 +118,11 @@ try:
                         # yaw right
                         print("y+")
                         yaw.positive_spin()
-                if key_press == curses.KEY_LEFT:
+                if key_press == ord('j'):
                         # roll left
                         print("r-")
                         roll.negative_spin()
-                elif key_press == curses.KEY_RIGHT:
+                elif key_press == ord('k'):
                         # roll right
                         print("r+")
                         roll.positive_spin()
