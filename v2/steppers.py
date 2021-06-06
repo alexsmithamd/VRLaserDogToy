@@ -63,13 +63,13 @@ class Axis:
         def set_pins(self, pins_arr, position_arr):
                 for i in range(4):
                         GPIO.output(pins_arr[i], position_arr[i])
-                time.sleep(delay)
+                        time.sleep(delay)
 
         def positive_spin(self):
                 print("Old position:")
                 print(self.position)
                 
-                for i in range(20):
+                for i in range(10):
                         if self.position_index == 7:
                                 self.position_index = 0
                         else:
@@ -86,11 +86,11 @@ class Axis:
                 print("Old position: ")
                 print(self.position)
                 
-                for i in range(20):
-                        # if self.position_index == 0:
-                        #         self.position_index = 7
-                        # else:
-                        self.position_index -= 1
+                for i in range(10):
+                        if self.position_index == 0:
+                                self.position_index = 7
+                        else:
+                                self.position_index -= 1
                         self.position = self.hs_sequence[self.position_index]
                         # set new pins
                         self.set_pins(self.pins, self.position)
