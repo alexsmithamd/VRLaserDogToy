@@ -103,7 +103,7 @@ class Axis:
 yaw = Axis(0, 12, 16, 18, 22)  # Y.2 : will stay still until we need it later
 pitch = Axis(0, 29, 31, 33, 35)   
 roll = Axis(0, 7, 11, 13, 15)   
-pitch = Axis(0, 32, 36, 38, 40)  
+height = Axis(0, 32, 36, 38, 40)  
 
 laser = Laser(False)
 
@@ -142,6 +142,7 @@ try:
                         # yaw right
                         print("y+")
                         yaw.positive_spin()
+
                 if key_press == ord('j'):
                         # roll left
                         print("r-")
@@ -150,6 +151,7 @@ try:
                         # roll right
                         print("r+")
                         roll.positive_spin()
+                        
                 if key_press == ord('g'):
                         # height down
                         print("h-")
