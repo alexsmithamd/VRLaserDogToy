@@ -5,14 +5,16 @@ import time
 import pygame
 import RPi.GPIO as GPIO
 
-# 1-40, criss cross setup
-GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+GPIO.cleanup()
+GPIO.setmode(GPIO.BOARD) #1-40
 
 # curses lib setup
 screen = curses.initscr()
 curses.noecho()
 curses.cbreak()
 screen.keypad(True)
+
 
 # define variables & pins
 delay = .001  # delay between each sequence step to prevent jitter
@@ -101,12 +103,17 @@ class Laser:
         def toggle_laser(self):      
                 if self.status == True:
                         self.status = False
+                        print("Status changed to False")
                 elif self.status == False:
                         self.status = True
+                        print("Status changed to True")
                 GPIO.output(8, self.status)
 
 
 laser = Laser(False)
+
+print("Initial status")
+print(laser.status)
 #------------------------------------------------------
 
 # Start main loop
@@ -119,7 +126,12 @@ try:
 
                 if key_press == ord('l'):
                         #toggles laser on/off when l is pressed
+                        print("Laser before")
+                        print(laser.status)
                         laser.toggle_laser()
+                        print("Laser after")
+                        print(laser.status)
+                        
 
                 if key_press == ord('w'):
                         # pitch up
