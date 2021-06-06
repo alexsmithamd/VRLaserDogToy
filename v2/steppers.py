@@ -19,6 +19,24 @@ screen.keypad(True)
 # define variables & pins
 delay = .001  # delay between each sequence step to prevent jitter
 
+#------------------------------------------------------
+
+# Laser stuff  
+
+GPIO.setup(8, GPIO.OUT)
+class Laser:
+        def __init__(self, status):
+            self.status = status
+            
+        def toggle_laser(self):      
+                if self.status == True:
+                        self.status = False
+                        print("Status changed to False")
+                elif self.status == False:
+                        self.status = True
+                        print("Status changed to True")
+                GPIO.output(8, self.status)
+
 class Axis:
         # half step sequence -> should put inside class ???
         hs_sequence = [
@@ -87,28 +105,8 @@ class Axis:
 # define axis
 height = Axis(0, 12, 16, 18, 22)  # Y.2 : will stay still until we need it later
 yaw = Axis(0, 31, 33, 35, 37)   # X
-pitch = Axis(0, 7, 11, 13, 15)   # Y
-roll = Axis(0, 32, 36, 38, 40)  # Z
-
-
-#------------------------------------------------------
-
-# Laser stuff  
-
-GPIO.setup(8, GPIO.OUT)
-class Laser:
-        def __init__(self, status):
-            self.status = status
-            
-        def toggle_laser(self):      
-                if self.status == True:
-                        self.status = False
-                        print("Status changed to False")
-                elif self.status == False:
-                        self.status = True
-                        print("Status changed to True")
-                GPIO.output(8, self.status)
-
+roll = Axis(0, 7, 11, 13, 15)   # Y
+pitch = Axis(0, 32, 36, 38, 40)  # Z
 
 laser = Laser(False)
 
