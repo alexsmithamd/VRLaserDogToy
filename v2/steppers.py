@@ -69,11 +69,11 @@ class Axis:
                 print("Old position:")
                 print(self.position)
                 
-                for i in range(30):
-                        if self.position_index == 7:
-                                self.position_index = 0
-                        else:
-                                self.position_index += 1
+                for i in range(20):
+                        # if self.position_index == 7:
+                        #         self.position_index = 0
+                        # else:
+                        self.position_index += 1
                         self.position = self.hs_sequence[self.position_index]
                         # set new pins
                         self.set_pins(self.pins, self.position)
@@ -86,17 +86,18 @@ class Axis:
                 print("Old position: ")
                 print(self.position)
                 
-                for i in range(30):
-                        if self.position_index == 0:
-                                self.position_index = 7
-                        else:
-                                self.position_index -= 1
+                for i in range(20):
+                        # if self.position_index == 0:
+                        #         self.position_index = 7
+                        # else:
+                        self.position_index -= 1
                         self.position = self.hs_sequence[self.position_index]
                         # set new pins
                         self.set_pins(self.pins, self.position)
 
-                print("New position: ")
+                print("New position:")
                 print(self.position)
+
 #-----------------------------------------------------
 
 # define axis
@@ -151,7 +152,7 @@ try:
                         # roll right
                         print("r+")
                         roll.positive_spin()
-                        
+
                 if key_press == ord('g'):
                         # height down
                         print("h-")
