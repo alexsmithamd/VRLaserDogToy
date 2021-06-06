@@ -70,10 +70,10 @@ class Axis:
                 print(self.position)
                 
                 for i in range(20):
-                        # if self.position_index == 7:
-                        #         self.position_index = 0
-                        # else:
-                        self.position_index += 1
+                        if self.position_index == 7:
+                                self.position_index = 0
+                        else:
+                                self.position_index += 1
                         self.position = self.hs_sequence[self.position_index]
                         # set new pins
                         self.set_pins(self.pins, self.position)
